@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketHub - Toko Online Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .cart-bubble {
+            top: -5px;
+            right: -5px;
+        }
+        .navbar {
+            backdrop-filter: blur(10px);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navbar -->
+    <header class="navbar bg-white/80 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <img src="gambar/gambar1.png" alt="Logo MarketHub berupa ikon keranjang belanja dengan gradasi warna merah muda" class="w-10 h-10">
+                <span class="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">MarketHub</span>
+            </a>
+
+            <!-- Search Bar - Desktop -->
+            <div class="hidden lg:flex flex-1 mx-8">
+                <div class="relative w-full max-w-2xl">
+                    <input type="text" placeholder="Cari produk, kategori, atau merek..." 
+                        class="w-full px-5 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex items-center gap-6">
+                <a href="#" class="hidden md:block text-gray-700 hover:text-pink-600 transition">Beranda</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition">
+                        Kategori <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 border border-gray-100">
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-50">Elektronik</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-50">Fashion</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-50">Rumah Tangga</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-50">Kesehatan</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="hidden md:flex items-center gap-1 text-gray-700 hover:text-pink-600 transition">
+                    <i class="far fa-heart"></i>
+                    <span class="text-sm">Wishlist</span>
+                </a>
+                
+                <a href="#" class="hidden md:flex items-center gap-1 text-gray-700 hover:text-pink-600 transition">
+                    <i class="far fa-user"></i>
+                    <span class="text-sm">Akun</span>
+                </a>
+                
+                <div class="relative">
+                    <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="cart-bubble absolute bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar - Mobile -->
+        <div class="lg:hidden container mx-auto px-4 py-2">
+            <div class="relative">
+                <input type="text" placeholder="Cari produk..." 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- Hero Banner -->
+        <section class="mb-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-white">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Diskon Besar-besaran 70%</h1>
+                    <p class="text-lg mb-6">Nikmati promo spesial untuk produk pilihan hanya hari ini</p>
+                    <div class="flex gap-3">
+                        <button class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Beli Sekarang</button>
+                        <button class="bg-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition border border-white">
+                            Lihat Katalog
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex items-center justify-center">
+                    <img src="gambar/gambar2.jpeg" alt="Ilustrasi promo besar-besaran dengan gambar produk elektronik dan diskon" class="h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-6">Kategori Populer</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-mobile-alt text-2xl text-pink-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Smartphone</span>
+                </a>
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-laptop text-2xl text-blue-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Laptop</span>
+                </a>
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-tshirt text-2xl text-purple-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Fashion</span>
+                </a>
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-home text-2xl text-green-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Rumah Tangga</span>
+                </a>
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-gamepad text-2xl text-yellow-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Gaming</span>
+                </a>
+                <a href="#" class="category-card bg-white rounded-xl p-4 shadow-sm flex flex-col items-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-heartbeat text-2xl text-red-600"></i>
+                    </div>
+                    <span class="font-medium text-center">Kesehatan</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="mb-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Produk Terbaru</h2>
+                <a href="#" class="text-pink-600 hover:text-pink-800 font-medium">Lihat Semua</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="gambar/download.jpeg" alt="Smartphone terbaru A Series warna hitam dengan layar AMOLED" class="w-full h-48 object-contain p-4">
+                        <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs px-2 py-1 rounded">Baru</div>
+                        <button class="absolute bottom-2 right-2 bg-white/80 rounded-full p-2 hover:bg-white">
+                            <i class="far fa-heart text-pink-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Smartphone A Series 2023</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(128)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-pink-600 font-bold text-lg">Rp 4.999.000</p>
+                                <p class="text-gray-400 text-sm line-through">Rp 5.999.000</p>
+                            </div>
+                            <button class="add-to-cart bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="gambar/images.jpeg" alt="Laptop ultrabook tipis warna silver dengan layar sentuh" class="w-full h-48 object-contain p-4">
+                        <button class="absolute bottom-2 right-2 bg-white/80 rounded-full p-2 hover:bg-white">
+                            <i class="far fa-heart text-gray-400 hover:text-pink-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Ultrabook X Pro 14"</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(87)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-pink-600 font-bold text-lg">Rp 12.899.000</p>
+                            </div>
+                            <button class="add-to-cart bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="gambar/download (1).jpeg" alt="Jam tangan smartwatch dengan strap hitam dan layar AMOLED" class="w-full h-48 object-contain p-4">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Diskon</div>
+                        <button class="absolute bottom-2 right-2 bg-white/80 rounded-full p-2 hover:bg-white">
+                            <i class="far fa-heart text-gray-400 hover:text-pink-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Smartwatch Pro 2023</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(256)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-pink-600 font-bold text-lg">Rp 1.799.000</p>
+                                <p class="text-gray-400 text-sm line-through">Rp 2.499.000</p>
+                            </div>
+                            <button class="add-to-cart bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="gambar/download (2).jpeg" alt="Headwireless nirkabel dengan ear cushions empuk warna hitam" class="w-full h-48 object-contain p-4">
+                        <button class="absolute bottom-2 right-2 bg-white/80 rounded-full p-2 hover:bg-white">
+                            <i class="far fa-heart text-gray-400 hover:text-pink-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Headphone Wireless Pro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(192)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-pink-600 font-bold text-lg">Rp 2.299.000</p>
+                            </div>
+                            <button class="add-to-cart bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="gambar/download (3).jpeg" alt="Kamera mirrorless dengan lensa kit 18-55mm untuk pemula" class="w-full h-48 object-contain p-4">
+                        <div class="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Stok Terbatas</div>
+                        <button class="absolute bottom-2 right-2 bg-white/80 rounded-full p-2 hover:bg-white">
+                            <i class="far fa-heart text-gray-400 hover:text-pink-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1 truncate">Kamera Mirrorless D5600</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(74)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-pink-600 font-bold text-lg">Rp 8.499.000</p>
+                                <p class="text-gray-400 text-sm line-through">Rp 9.999.000</p>
+                            </div>
+                            <button class="add-to-cart bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-lg hover:from-purple-600 hover:to-pink-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banner -->
+        <section class="mb-10 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl p-6 text-white">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/3 mb-4 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Gratis Ongkir & Cashback 20%</h2>
+                    <p class="mb-4">Khusus hari ini saja! Belanja minimal Rp 500.000 dan dapatkan promo menarik</p>
+                    <div class="flex gap-3">
+                        <button class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">Belanja Sekarang</button>
+                        <button class="bg-transparent border border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white/10 transition">
+                            Syarat & Ketentuan
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="gambar/pngtree-cashback-tags-vector-badges-template-design-vector-illustration-png-image_5279557.jpg" alt="Ilustrasi paket hadiah dan uang cashback" class="h-40">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="gambar/gambar1.png" alt="Logo MarketHub putih" class="w-10 h-10">
+                        <span class="text-2xl font-bold">MarketHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Solusi belanja online terbaik dengan jutaan produk berkualitas dan pelayanan terbaik.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Tentang Kami</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Profil Perusahaan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Karir</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sertifikasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Bantuan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pusat Bantuan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cara Pembelian</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pengembalian</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Afiliasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Mitra Seller</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Program Afiliasi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Media Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 MarketHub. Seluruh hak cipta dilindungi.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Syarat & Ketentuan</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.getElementById('cart-count');
+            let count = 0;
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    count++;
+                    cartCount.textContent = count;
+                    
+                    // Add animation
+                    cartCount.classList.add('animate-bounce');
+                    setTimeout(() => {
+                        cartCount.classList.remove('animate-bounce');
+                    }, 500);
+                    
+                    // Show notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300';
+                    notification.textContent = 'Produk ditambahkan ke keranjang';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.classList.add('translate-x-0');
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('translate-x-0');
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 300);
+                    }, 3000);
+                });
+            });
+            
+            // Mobile menu toggle (placeholder functionality)
+            const mobileMenuButton = document.querySelector('header button.lg\\:hidden');
+            mobileMenuButton.addEventListener('click', function() {
+                alert('Menu mobile akan tampil di sini');
+            });
+        });
+    </script>
+</body>
+</html>
